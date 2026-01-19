@@ -20,7 +20,7 @@ CONTAINER_TOOL ?= docker
 SHELL = /usr/bin/env bash -o pipefail
 .SHELLFLAGS = -ec
 
-TARGETS := bin/keel-client
+TARGETS := bin/keel-client bin/keel-server
 
 
 PROTODIR := proto
@@ -34,6 +34,8 @@ all: ${TARGETS}
 bin/keel-client: $(wildcard cmd/keel-client/*.go)
 	go build -o $@ ${GO_MODULE}/$(subst bin,cmd,$@)
 
+bin/keel-server: $(wildcard cmd/keel-server/*.go)
+	go build -o $@ ${GO_MODULE}/$(subst bin,cmd,$@)
 .PHONY: clean
 clean:
 	-rm ${TARGETS}
