@@ -36,6 +36,7 @@ bin/keel-client: $(wildcard cmd/keel-client/*.go)
 
 bin/keel-server: $(wildcard cmd/keel-server/*.go)
 	go build -o $@ ${GO_MODULE}/$(subst bin,cmd,$@)
+
 .PHONY: clean
 clean:
 	-rm ${TARGETS}

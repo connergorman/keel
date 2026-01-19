@@ -1,0 +1,19 @@
+syntax = "proto3";
+package cluster.v1;
+
+
+option go_package = "github.com/connergorman/keel/gen/cluster/v1;deployv1";
+
+message RegisterRequest {
+  string name = 1;
+  string region = 2;
+  string env = 3;
+}
+
+message RegisterResponse {
+  string registration_id = 1;
+}
+
+service RegisterClusterService {
+  rpc Register(RegisterRequest) returns (RegisterResponse);
+}
