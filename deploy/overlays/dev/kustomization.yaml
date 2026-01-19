@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: alcides
+components:
+  - ../../components/keel-client
+  - ../../components/rbac
+
+resources:
+  - client-config-dev.yaml
+  - https://raw.githubusercontent.com/zinclabs/openobserve/main/deploy/k8s/statefulset.yaml

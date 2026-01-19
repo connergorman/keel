@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: client-config
+data:
+  # Logging configuration
+  LOG_LEVEL: "info"
+  LOG_DEVELOPMENT: "false"
+  LOG_ENCODER: "json"
+
+  # Health probe configuration
+  HEALTH_PROBE_BIND_ADDRESS: ":8081"
+
+  # Metrics configuration
+  METRICS_BIND_ADDRESS: ":8080"
+  METRICS_SECURE: "false"
+
+  # Leader election configuration
+  LEADER_ELECTION_ID: ".homelab.co"
+  LEASE_DURATION: "15s"
+  RENEW_DEADLINE: "10s"
+  RETRY_PERIOD: "2s"
+
+  # Webhook configuration
+  WEBHOOK_PORT: "9443"
